@@ -45,4 +45,14 @@ public class BackpackTest {
         backpack.addItem(new Item("Brick", "A Brick"));
         assertEquals("Expect 2 items to be in the backpack.", 2, backpack.getAmountOfItems());
     }
+
+    /**
+     * Test getting an item by name.
+     */
+    @Test
+    public void getItemByName() {
+        backpack.addItem(new Item("Axe", "An axe"));
+        Item axe = backpack.getItemByName("Axe");
+        assertEquals("Expect the name of the item to be 'Axe'.", "Axe", axe.getName());
+    }
 }
