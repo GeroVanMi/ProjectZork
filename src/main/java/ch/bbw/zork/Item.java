@@ -10,6 +10,8 @@ public class Item {
 		this.description = description;
 	}
 
+	public Item() {}
+
 	public String getName() {
 		return name;
 	}
