@@ -55,4 +55,15 @@ public class BackpackTest {
         Item axe = backpack.getItemByName("Axe");
         assertEquals("Expect the name of the item to be 'Axe'.", "Axe", axe.getName());
     }
+
+    /**
+     * Test removing item from backpack.
+     */
+    @Test
+    public void removeItemFromBackpack() {
+        Item item = new Item();
+        backpack.addItem(item);
+        backpack.removeItem(item);
+        assertEquals("Expect zero items in the backpack." , 0, backpack.getAmountOfItems());
+    }
 }
