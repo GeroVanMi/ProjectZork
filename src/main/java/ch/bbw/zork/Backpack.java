@@ -3,7 +3,7 @@ package ch.bbw.zork;
 import java.util.ArrayList;
 
 /**
- * Backpack-class that holds a list of items.
+ * Backpack-class that holds a list of items that the player can collect.
  */
 public class Backpack {
     private ArrayList<Item> inventory;
@@ -22,6 +22,20 @@ public class Backpack {
         if (!inventory.contains(item)) {
             inventory.add(item);
         }
+    }
+
+    /**
+     * @return Returns all the items in the backpack as a ArrayList.
+     */
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+
+    /**
+     * @return Returns the amount of items that are stored in the inventory.
+     */
+    public int getAmountOfItems() {
+        return inventory.size();
     }
 
     /**
