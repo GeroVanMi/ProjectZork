@@ -44,7 +44,7 @@ public class Backpack {
      */
     public Item getItemByName(String name) {
         for(Item currentItem : inventory) {
-            if(currentItem.getName().equals(name)) {
+            if(currentItem.getName().toLowerCase().equals(name.toLowerCase())) {
                 return currentItem;
             }
         }
