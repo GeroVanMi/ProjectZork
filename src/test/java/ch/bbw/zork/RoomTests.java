@@ -8,8 +8,8 @@ public class RoomTests {
 
     @Test
     public void testBasicRoom() {
-        Room room = new Room("trash can");
-        room.setExits(null, null, new Room("test"), null);
+        Room room = new Room("trash can", "trash");
+        room.setExits(null, null, new Room("test", "trash"), null);
         assertEquals("trash can", room.shortDescription());
         assertNull(room.nextRoom("east"));
         assertNotNull(room.nextRoom("south"));
@@ -17,7 +17,7 @@ public class RoomTests {
 
     @Test
     public void testRoomItems() {
-        Room room = new Room("trash can");
+        Room room = new Room("trash can", "trash");
 
         Item i = new Item();
         i.setName("test");
