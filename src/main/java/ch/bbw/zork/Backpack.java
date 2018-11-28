@@ -25,6 +25,24 @@ public class Backpack {
     }
 
     /**
+     * Remove item from backpack by name.
+     */
+    public void removeItem(String name) {
+        for(Item item : inventory) {
+            if(item.getName().toLowerCase().equals(name.toLowerCase())) {
+                inventory.remove(item);
+            }
+        }
+    }
+
+    /**
+     * Remove item from backpack.
+     */
+    public void removeItem(Item item) {
+        inventory.remove(item);
+    }
+
+    /**
      * @return Returns all the items in the backpack as a ArrayList.
      */
     public ArrayList<Item> getInventory() {
