@@ -5,7 +5,15 @@ public class Item {
 	private String name;
 	private String description;
 	private double weight;
-	
+
+
+	public Item(String name, String description) {
+		this.name = name;
+		this.description = description;
+	}
+
+	public Item() {}
+
 	public String getName() {
 		return name;
 	}
