@@ -7,9 +7,10 @@ public class Item {
 	private double weight;
 
 
-	public Item(String name, String description) {
+	public Item(String name, String description, double weight) {
 		this.name = name;
 		this.description = description;
+		this.weight = weight;
 	}
 
 	public Item() {}
