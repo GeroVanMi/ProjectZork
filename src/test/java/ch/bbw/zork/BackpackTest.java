@@ -21,7 +21,7 @@ public class BackpackTest {
      */
     @Test
     public void testAdding() {
-        backpack.addItem(new Item("Pickaxe", "It's a pickaxe"));
+        backpack.addItem(new Item("Pickaxe", "It's a pickaxe", 1.0));
         assertEquals("Expect one item to be in the inventory.", 1, backpack.getAmountOfItems());
     }
 
@@ -30,7 +30,7 @@ public class BackpackTest {
      */
     @Test
     public void addSameItem() {
-        Item pickaxe = new Item("Pickaxe", "It's a pickaxe");
+        Item pickaxe = new Item("Pickaxe", "It's a pickaxe", 1.0);
         backpack.addItem(pickaxe);
         backpack.addItem(pickaxe);
         assertEquals("Expect second pickaxe to be deleted.", 1, backpack.getAmountOfItems());
@@ -41,8 +41,8 @@ public class BackpackTest {
      */
     @Test
     public void addMultipleItems() {
-        backpack.addItem(new Item("House", "A House"));
-        backpack.addItem(new Item("Brick", "A Brick"));
+        backpack.addItem(new Item("House", "A House", 1.0));
+        backpack.addItem(new Item("Brick", "A Brick", 2.0));
         assertEquals("Expect 2 items to be in the backpack.", 2, backpack.getAmountOfItems());
     }
 
@@ -51,7 +51,7 @@ public class BackpackTest {
      */
     @Test
     public void getItemByName() {
-        backpack.addItem(new Item("Axe", "An axe"));
+        backpack.addItem(new Item("Axe", "An axe", 1.0));
         Item axe = backpack.getItemByName("Axe");
         assertEquals("Expect the name of the item to be 'Axe'.", "Axe", axe.getName());
     }

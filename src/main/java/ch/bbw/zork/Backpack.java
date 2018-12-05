@@ -7,12 +7,14 @@ import java.util.ArrayList;
  */
 public class Backpack {
     private ArrayList<Item> inventory;
+    private double limit;
 
     /**
      * Constructor method that creates an empty backpack.
      */
     public Backpack() {
         this.inventory = new ArrayList<>();
+        this.limit = 50.0;
     }
 
     /**
@@ -20,7 +22,13 @@ public class Backpack {
      */
     public void addItem(Item item) {
         if (!inventory.contains(item)) {
-            inventory.add(item);
+            if(limit >= getBackpackWeight()){
+
+                inventory.add(item);
+            } else{
+                System.out.println("your backpack is full");
+            }
+
         }
     }
 
@@ -67,5 +75,14 @@ public class Backpack {
             }
         }
         return null;
+    }
+
+    public double getBackpackWeight(){
+        double fullWeight = 0;
+        for(Item i: inventory){
+            fullWeight= fullWeight + i.getWeight();
+        }
+        System.out.println(fullWeight);
+        return fullWeight;
     }
 }
