@@ -134,7 +134,9 @@ public class Game {
                 } catch (NullPointerException npe) {
                     System.out.println("Get what?");
                 }
-			}
+			} else {
+                System.out.println("Get what?");
+            }
 		} else if (commandWord.equals("put")) {
 			try {
 			    currentRoom.addItem(backpack.getItemByName(command.getSecondWord()));
