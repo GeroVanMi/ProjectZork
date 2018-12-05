@@ -87,6 +87,10 @@ public class Game {
         lab.addItem(key);
     }
 
+    public CommandRegistry getCommandRegistry() {
+        return commandRegistry;
+    }
+
     public Room getCurrentRoom() {
         return currentRoom;
     }

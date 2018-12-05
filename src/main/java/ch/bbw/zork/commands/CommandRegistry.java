@@ -14,6 +14,10 @@ public class CommandRegistry {
         commandHandlers = new ArrayList<>();
     }
 
+    public List<CommandHandler> getCommandHandlers() {
+        return commandHandlers;
+    }
+
     /**
      * Returns the command handler for a given command. If this handler is not registered, null will be returned
      *

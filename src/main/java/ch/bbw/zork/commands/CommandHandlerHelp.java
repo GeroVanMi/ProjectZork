@@ -15,6 +15,9 @@ public class CommandHandlerHelp implements CommandHandler {
         System.out.println("around at Monash Uni, Peninsula Campus.");
         System.out.println();
         System.out.println("Your command words are:");
-        // TODO print commands
+
+        for (CommandHandler handler : game.getCommandRegistry().getCommandHandlers()) {
+            System.out.println(handler.getCommandWord());
+        }
     }
 }
