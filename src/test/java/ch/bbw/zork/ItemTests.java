@@ -1,5 +1,6 @@
 package ch.bbw.zork;
 
+import ch.bbw.zork.items.Item;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

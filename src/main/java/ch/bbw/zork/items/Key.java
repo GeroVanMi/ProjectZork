@@ -1,4 +1,6 @@
-package ch.bbw.zork;
+package ch.bbw.zork.items;
+
+import ch.bbw.zork.Room;
 
 public class Key extends Item {
 
