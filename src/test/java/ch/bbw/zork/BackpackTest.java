@@ -1,5 +1,7 @@
 package ch.bbw.zork;
 
+import ch.bbw.zork.items.Backpack;
+import ch.bbw.zork.items.Item;
 import org.junit.Before;
 import org.junit.Test;
 
