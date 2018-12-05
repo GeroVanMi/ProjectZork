@@ -14,7 +14,7 @@ public class Backpack {
      */
     public Backpack() {
         this.inventory = new ArrayList<>();
-        this.limit = 50.0;
+        this.limit = 10.0;
     }
 
     /**
@@ -22,7 +22,7 @@ public class Backpack {
      */
     public void addItem(Item item) {
         if (!inventory.contains(item)) {
-            if(limit >= getBackpackWeight()){
+            if(limit >= getBackpackWeight() + item.getWeight()){
 
                 inventory.add(item);
             } else{
@@ -82,7 +82,6 @@ public class Backpack {
         for(Item i: inventory){
             fullWeight= fullWeight + i.getWeight();
         }
-        System.out.println(fullWeight);
         return fullWeight;
     }
 }
