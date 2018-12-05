@@ -1,5 +1,6 @@
 package ch.bbw.zork;
 
+import ch.bbw.zork.commands.Command;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;

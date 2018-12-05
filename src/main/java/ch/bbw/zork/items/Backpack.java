@@ -1,4 +1,6 @@
-package ch.bbw.zork;
+package ch.bbw.zork.items;
+
+import ch.bbw.zork.items.Item;
 
 import java.util.ArrayList;
 
