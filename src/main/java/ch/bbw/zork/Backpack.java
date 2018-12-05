@@ -23,12 +23,11 @@ public class Backpack {
     public void addItem(Item item) {
         if (!inventory.contains(item)) {
             if(limit >= getBackpackWeight() + item.getWeight()){
-
                 inventory.add(item);
+                System.out.println("You have picked up " + item.getName());
             } else{
                 System.out.println("your backpack is full");
             }
-
         }
     }
 
@@ -39,6 +38,7 @@ public class Backpack {
         for(Item item : inventory) {
             if(item.getName().toLowerCase().equals(name.toLowerCase())) {
                 inventory.remove(item);
+                System.out.print("You have dropped " + item.getName());
             }
         }
     }
