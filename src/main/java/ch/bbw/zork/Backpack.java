@@ -21,6 +21,7 @@ public class Backpack {
     public void addItem(Item item) {
         if (!inventory.contains(item)) {
             inventory.add(item);
+            System.out.println("You have picked up " + item.getName());
         }
     }
 
@@ -31,6 +32,7 @@ public class Backpack {
         for(Item item : inventory) {
             if(item.getName().toLowerCase().equals(name.toLowerCase())) {
                 inventory.remove(item);
+                System.out.print("You have dropped " + item.getName());
             }
         }
     }
