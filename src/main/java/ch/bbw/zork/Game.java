@@ -220,11 +220,14 @@ public class Game {
 						Item key = (Key) currentItem;
 						// Check if the current item, which is a key, fits the next room.
 						if(((Key)key).getRoom().equals(nextRoom)) {
+                            System.out.println("You have unlocked " + nextRoom.getName());
 							currentRoom = nextRoom;
 							System.out.println(currentRoom.longDescription());
+							break;
 						}
 					}
 				}
+                System.out.println("The room is locked.");
 			}
 			// Room is not locked, change room
 			else {
