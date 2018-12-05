@@ -19,12 +19,17 @@ public class CommandHandlerGo implements CommandHandler {
             Room currentRoom = game.getCurrentRoom();
             Room nextRoom = currentRoom.nextRoom(direction);
 
-            // TODO: check if room is locked
-            // TODO: check if game was won
 
-            if (nextRoom == null)
+            // TODO: check if game was won
+            boolean canEnter = true;
+            if (nextRoom == null) {
+                canEnter = false;
                 System.out.println("There is no door!");
-            else {
+            } else if (nextRoom.isLocked()) {
+                // TODO: check if key is in backpack
+                System.out.println("the Room is locked");
+            }
+            if (canEnter) {
                 game.getPreviousRooms().push(currentRoom);
                 game.setCurrentRoom(nextRoom);
                 System.out.println(nextRoom.longDescription());
