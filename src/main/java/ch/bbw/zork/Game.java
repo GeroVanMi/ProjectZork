@@ -57,7 +57,7 @@ public class Game {
         // Create all the rooms and link their exits together.
         Room outside = new Room("outside G block on Peninsula campus", "Campus");
         Room lab = new Room("lab, a lecture theatre in A block", "Lecture theatre");
-        Room tavern = new Room("the Seahorse Tavern (the campus pub)", "Seahorse tavern");
+        Room tavern = new Room("the Seahorse Tavern (the campus pub)", "Seahorse tavern",true);
         Room gblock = new Room("the G Block", "G block");
         Room office = new Room("the computing admin office", "Computing Office");
         Room garden = new Room("the garden outside G Block", "Garden");
