@@ -211,11 +211,26 @@ public class Game {
 	
 			if (nextRoom == null)
 				System.out.println("There is no door!");
+
+			// Check if room is locked
+			else if(nextRoom.isLocked()) {
+			    // Check if player has keys
+				for(Item currentItem : backpack.getInventory()) {
+					if(currentItem.getName().toLowerCase().equals("key")) {
+						Item key = (Key) currentItem;
+						// Check if the current item, which is a key, fits the next room.
+						if(((Key)key).getRoom().equals(nextRoom)) {
+							currentRoom = nextRoom;
+							System.out.println(currentRoom.longDescription());
+						}
+					}
+				}
+			}
+			// Room is not locked, change room
 			else {
 				previousRooms.push(currentRoom);
 				currentRoom = nextRoom;
 				System.out.println(currentRoom.longDescription());
-				
 			}
 		}
 	}
