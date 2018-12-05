@@ -216,10 +216,10 @@ public class Game {
 			else if(nextRoom.isLocked()) {
 			    // Check if player has keys
 				for(Item currentItem : backpack.getInventory()) {
-					if(currentItem.getName().toLowerCase().equals("key")) {
-						Item key = (Key) currentItem;
+					if(currentItem instanceof Key) {
+						Key key = (Key) currentItem;
 						// Check if the current item, which is a key, fits the next room.
-						if(((Key)key).getRoom().equals(nextRoom)) {
+						if(key.getRoom().equals(nextRoom)) {
                             System.out.println("You have unlocked " + nextRoom.getName());
 							currentRoom = nextRoom;
 							System.out.println(currentRoom.longDescription());
