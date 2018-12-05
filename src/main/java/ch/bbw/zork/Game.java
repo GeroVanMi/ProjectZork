@@ -36,6 +36,7 @@ public class Game {
     private Stack<Room> previousRooms;
     private ArrayList<Room> map;
     private boolean finished;
+    private Room winningRoom;
 
     /**
      * Create the game and initialise its internal map.
@@ -60,6 +61,9 @@ public class Game {
         Room gblock = new Room("the G Block", "G block");
         Room office = new Room("the computing admin office", "Computing Office");
         Room garden = new Room("the garden outside G Block", "Garden");
+
+        //set winning Room
+        winningRoom = tavern;
 
         // initialise room exits
         garden.setExits(gblock, null, null, null);
@@ -96,6 +100,10 @@ public class Game {
     }
 
     public void setCurrentRoom(Room currentRoom) {
+        if(currentRoom == winningRoom){
+            finished = true;
+            System.out.println("you won");
+        }
         this.currentRoom = currentRoom;
     }
 
