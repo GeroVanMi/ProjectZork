@@ -1,5 +1,6 @@
 package ch.bbw.zork;
 
+import ch.bbw.zork.commands.Command;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,17 +27,13 @@ public class ParserTest {
 
         parser = new Parser(stream);
         Command command = parser.getCommand();
-        System.out.println(command.getCommandWord());
         assertEquals("go",command.getCommandWord());
         assertEquals("West",command.getSecondWord());
     }
     /*
     public void setup() throws IOException {
-
         in = Mockito.mock(InputStream.class);
-
     }
-
     @Test
     public void test() throws IOException {
         InputStream test = new ByteArrayInputStream("Go West".getBytes());
