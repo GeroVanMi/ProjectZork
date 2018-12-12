@@ -137,6 +137,13 @@ public class Game {
         printWelcome();
     }
 
+    public void killPlayer() {
+        initialize();
+
+        System.out.println("You have been killed");
+        printWelcome();
+    }
+
     /**
      * Main play routine.  Loops until end of play.
      */
