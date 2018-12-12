@@ -51,8 +51,45 @@ public class Game {
         commandRegistry.registerCommand(new CommandHandlerMap());
         commandRegistry.registerCommand(new CommandHandlerPut());
         commandRegistry.registerCommand(new CommandHandlerQuit());
+        commandRegistry.registerCommand(new CommandRestart());
 
         parser = new Parser(System.in);
+        initialize();
+    }
+
+    public CommandRegistry getCommandRegistry() {
+        return commandRegistry;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        if(currentRoom == winningRoom){
+            finished = true;
+            System.out.println("you won");
+        }
+        this.currentRoom = currentRoom;
+    }
+
+    public Backpack getBackpack() {
+        return backpack;
+    }
+
+    public Stack<Room> getPreviousRooms() {
+        return previousRooms;
+    }
+
+    public ArrayList<Room> getMap() {
+        return map;
+    }
+
+    public void end() {
+        finished = true;
+    }
+
+    public void initialize() {
         backpack = new Backpack();
         // Create all the rooms and link their exits together.
         Room outside = new Room("outside G block on Peninsula campus", "Campus");
@@ -91,36 +128,11 @@ public class Game {
         lab.addItem(key);
     }
 
-    public CommandRegistry getCommandRegistry() {
-        return commandRegistry;
-    }
+    public void restart() {
+        initialize();
 
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Room currentRoom) {
-        if(currentRoom == winningRoom){
-            finished = true;
-            System.out.println("you won");
-        }
-        this.currentRoom = currentRoom;
-    }
-
-    public Backpack getBackpack() {
-        return backpack;
-    }
-
-    public Stack<Room> getPreviousRooms() {
-        return previousRooms;
-    }
-
-    public ArrayList<Room> getMap() {
-        return map;
-    }
-
-    public void end() {
-        finished = true;
+        System.out.println("Game restarted");
+        printWelcome();
     }
 
     /**
