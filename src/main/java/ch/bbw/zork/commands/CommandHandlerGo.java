@@ -2,6 +2,8 @@ package ch.bbw.zork.commands;
 
 import ch.bbw.zork.Game;
 import ch.bbw.zork.Room;
+import ch.bbw.zork.items.Item;
+import ch.bbw.zork.items.Key;
 
 public class CommandHandlerGo implements CommandHandler {
 
@@ -19,25 +21,32 @@ public class CommandHandlerGo implements CommandHandler {
             Room currentRoom = game.getCurrentRoom();
             Room nextRoom = currentRoom.nextRoom(direction);
 
-            boolean canEnter = false;
+            boolean canEnter = true;
             if (nextRoom == null) {
                 canEnter = false;
                 System.out.println("There is no door!");
             } else if (nextRoom.isLocked()) {
-                if (game.getBackpack().getItemByName("Key " + nextRoom.getName()) != null) {
-                    System.out.println("You have unlocked the door to " + nextRoom.getName());
-                    canEnter = true;
-                } else {
-                    System.out.println("the Room is locked");
+                canEnter = false;
+                for (Item item : game.getBackpack().getInventory()) {
+                    if (item instanceof Key) {
+                        Key key = (Key) item;
+                        if (key.getRoom() == nextRoom) {
+                            canEnter = true;
+                            break;
+                        }
+                    }
                 }
-            } else {
-                canEnter = true;
+
+                if (!canEnter)
+                    System.out.println("This Room is locked");
             }
+
             if (canEnter) {
                 game.getPreviousRooms().push(currentRoom);
-                game.setCurrentRoom(nextRoom);
-                game.incrementScore();
-                System.out.println(nextRoom.longDescription());
+                if (!game.setCurrentRoom(nextRoom)) {
+                    game.incrementScore();
+                    System.out.println(nextRoom.longDescription());
+                }
             }
         } else {
             System.out.println("Go where?");

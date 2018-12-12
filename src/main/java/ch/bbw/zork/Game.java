@@ -66,7 +66,14 @@ public class Game {
         return currentRoom;
     }
 
-
+    public boolean setCurrentRoom(Room currentRoom) {
+        if(currentRoom == winningRoom){
+            finished = true;
+            System.out.println("you won");
+        }
+        this.currentRoom = currentRoom;
+        return finished;
+    }
 
     public Backpack getBackpack() {
         return backpack;
@@ -132,15 +139,6 @@ public class Game {
 
         System.out.println("Game restarted");
         printWelcome();
-    }
-
-    public boolean setCurrentRoom(Room currentRoom) {
-        if(currentRoom == winningRoom){
-            finished = true;
-            System.out.println("you won");
-        }
-        this.currentRoom = currentRoom;
-        return finished;
     }
 
     public void killPlayer() {
