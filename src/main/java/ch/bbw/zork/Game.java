@@ -123,9 +123,11 @@ public class Game {
 
         Item hammer = new Item("Hammer", "A Hammer", 10.0);
         Item key = new Key(tavern);
+        Item magicCape = new Item( "Magic Cape", "with this cape you get rid of all ghosts", 2.0);
 
         lab.addItem(hammer);
         lab.addItem(key);
+        garden.addItem(magicCape);
     }
 
     public void restart() {
