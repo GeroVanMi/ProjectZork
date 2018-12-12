@@ -46,6 +46,9 @@ public class CommandHandlerGo implements CommandHandler {
                 if (!game.setCurrentRoom(nextRoom)) {
                     game.incrementScore();
                     System.out.println(nextRoom.longDescription());
+                    if (game.getCurrentGhost() != null) {
+                        System.out.println("There is a ghost in this room. Spoookie...");
+                    }
                 }
             }
         } else {

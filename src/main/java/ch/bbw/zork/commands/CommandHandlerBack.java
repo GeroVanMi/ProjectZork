@@ -18,6 +18,9 @@ public class CommandHandlerBack implements CommandHandler {
             Room previous = game.getPreviousRooms().pop();
             game.setCurrentRoom(previous);
             System.out.println(previous.longDescription());
+            if (game.getCurrentGhost() != null) {
+                System.out.println("There is a ghost in this room. Spoookie...");
+            }
         }
     }
 }
