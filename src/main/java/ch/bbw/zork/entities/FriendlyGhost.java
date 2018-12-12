@@ -1,8 +1,13 @@
 package ch.bbw.zork.entities;
 
-public class FriendlyGhost extends Ghost {
-    @Override
-    public void respond() {
+import ch.bbw.zork.Game;
 
+public class FriendlyGhost extends Ghost {
+    public FriendlyGhost() {
+    }
+
+    @Override
+    public void respond(Game game) {
+        //give location to Cloak
     }
 }
