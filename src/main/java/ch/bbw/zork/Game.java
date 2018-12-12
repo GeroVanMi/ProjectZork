@@ -77,7 +77,8 @@ public class Game {
     public boolean setCurrentRoom(Room currentRoom) {
         if(currentRoom == winningRoom){
             finished = true;
-            System.out.println("you won");
+            System.out.println("Congratulations, you have won the Zork-Game!");
+            System.out.println("You have achieved an astonishing " + score + " Points!");
         } else {
             int val = random.nextInt(10);
             if (val < 3) {
@@ -187,7 +188,6 @@ public class Game {
             Command command = parser.getCommand();
             processCommand(command);
         }
-        System.out.println("You have achieved an astonishing " + score + " Points!");
         System.out.println("Thank you for playing. Good bye.");
     }
 
