@@ -2,6 +2,8 @@ package ch.bbw.zork.commands;
 
 import ch.bbw.zork.Game;
 import ch.bbw.zork.Room;
+import ch.bbw.zork.items.Item;
+import ch.bbw.zork.items.Key;
 
 public class CommandHandlerGo implements CommandHandler {
 
@@ -19,16 +21,26 @@ public class CommandHandlerGo implements CommandHandler {
             Room currentRoom = game.getCurrentRoom();
             Room nextRoom = currentRoom.nextRoom(direction);
 
-
-            // TODO: check if game was won
             boolean canEnter = true;
             if (nextRoom == null) {
                 canEnter = false;
                 System.out.println("There is no door!");
             } else if (nextRoom.isLocked()) {
-                // TODO: check if key is in backpack
-                System.out.println("the Room is locked");
+                canEnter = false;
+                for (Item item : game.getBackpack().getInventory()) {
+                    if (item instanceof Key) {
+                        Key key = (Key) item;
+                        if (key.getRoom() == nextRoom) {
+                            canEnter = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!canEnter)
+                    System.out.println("This Room is locked");
             }
+
             if (canEnter) {
                 game.getPreviousRooms().push(currentRoom);
                 if (!game.setCurrentRoom(nextRoom)) {
