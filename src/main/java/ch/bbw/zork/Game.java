@@ -162,6 +162,7 @@ public class Game {
             Command command = parser.getCommand();
             processCommand(command);
         }
+        System.out.println("You have achieved an astonishing " + score + " Points!");
         System.out.println("Thank you for playing. Good bye.");
     }
 
