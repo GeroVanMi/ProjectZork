@@ -20,7 +20,9 @@ public class CommandHandlerGet implements CommandHandler {
                 System.out.println("Such an item is not in this room");
             } else {
                 Backpack backpack = game.getBackpack();
-                backpack.addItem(item);
+                if(backpack.addItem(item)) {
+                    currentRoom.removeItem(item);
+                }
             }
         } else {
             System.out.println("Get what?");
