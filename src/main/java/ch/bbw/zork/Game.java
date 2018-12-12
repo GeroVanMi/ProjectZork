@@ -52,8 +52,39 @@ public class Game {
         commandRegistry.registerCommand(new CommandHandlerMap());
         commandRegistry.registerCommand(new CommandHandlerPut());
         commandRegistry.registerCommand(new CommandHandlerQuit());
+        commandRegistry.registerCommand(new CommandRestart());
 
         parser = new Parser(System.in);
+        initialize();
+    }
+
+    public CommandRegistry getCommandRegistry() {
+        return commandRegistry;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+
+
+    public Backpack getBackpack() {
+        return backpack;
+    }
+
+    public Stack<Room> getPreviousRooms() {
+        return previousRooms;
+    }
+
+    public ArrayList<Room> getMap() {
+        return map;
+    }
+
+    public void end() {
+        finished = true;
+    }
+
+    public void initialize() {
         backpack = new Backpack();
         // Create all the rooms and link their exits together.
         Room outside = new Room("outside G block on Peninsula campus", "Campus");
@@ -87,44 +118,36 @@ public class Game {
 
         Item hammer = new Item("Hammer", "A Hammer", 10.0);
         Item key = new Key(tavern);
+        Item magicCape = new Item( "Magic Cape", "with this cape you get rid of all ghosts", 2.0);
 
         lab.addItem(hammer);
         lab.addItem(key);
+        garden.addItem(magicCape);
 
         score = 0;
     }
 
-    public CommandRegistry getCommandRegistry() {
-        return commandRegistry;
+    public void restart() {
+        initialize();
+
+        System.out.println("Game restarted");
+        printWelcome();
     }
 
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Room currentRoom) {
+    public boolean setCurrentRoom(Room currentRoom) {
         if(currentRoom == winningRoom){
             finished = true;
-            System.out.println("Congratulations! You have won the Zork-Game!");
-            System.out.println("You have achieved an astonishing " + score + " Points!");
+            System.out.println("you won");
         }
         this.currentRoom = currentRoom;
+        return finished;
     }
 
-    public Backpack getBackpack() {
-        return backpack;
-    }
+    public void killPlayer() {
+        initialize();
 
-    public Stack<Room> getPreviousRooms() {
-        return previousRooms;
-    }
-
-    public ArrayList<Room> getMap() {
-        return map;
-    }
-
-    public void end() {
-        finished = true;
+        System.out.println("You have been killed");
+        printWelcome();
     }
 
     /**

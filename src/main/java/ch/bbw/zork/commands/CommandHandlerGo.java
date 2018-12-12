@@ -21,6 +21,7 @@ public class CommandHandlerGo implements CommandHandler {
 
             boolean canEnter = false;
             if (nextRoom == null) {
+                canEnter = false;
                 System.out.println("There is no door!");
             } else if (nextRoom.isLocked()) {
                 if (game.getBackpack().getItemByName("Key " + nextRoom.getName()) != null) {
