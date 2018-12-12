@@ -125,6 +125,15 @@ public class Room {
         return null;
     }
 
+    public boolean containsItem(String name) {
+        for (Item item : items) {
+            if (item.getName().toLowerCase().equals(name.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String getName() {
         return name;
     }
