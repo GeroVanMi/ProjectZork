@@ -37,6 +37,7 @@ public class Game {
     private ArrayList<Room> map;
     private boolean finished;
     private Room winningRoom;
+    private int score;
 
     /**
      * Create the game and initialise its internal map.
@@ -89,6 +90,8 @@ public class Game {
 
         lab.addItem(hammer);
         lab.addItem(key);
+
+        score = 0;
     }
 
     public CommandRegistry getCommandRegistry() {
@@ -102,7 +105,8 @@ public class Game {
     public void setCurrentRoom(Room currentRoom) {
         if(currentRoom == winningRoom){
             finished = true;
-            System.out.println("you won");
+            System.out.println("Congratulations! You have won the Zork-Game!");
+            System.out.println("You have achieved an astonishing " + score + " Points!");
         }
         this.currentRoom = currentRoom;
     }
@@ -162,5 +166,13 @@ public class Game {
         } else {
             handler.handle(command, this);
         }
+    }
+
+    public void incrementScore() {
+        this.score++;
+    }
+
+    public void resetScore() {
+        this.score = 0;
     }
 }
