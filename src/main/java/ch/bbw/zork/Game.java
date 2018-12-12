@@ -37,6 +37,7 @@ public class Game {
     private ArrayList<Room> map;
     private boolean finished;
     private Room winningRoom;
+    private int score;
 
     /**
      * Create the game and initialise its internal map.
@@ -129,6 +130,8 @@ public class Game {
         lab.addItem(hammer);
         lab.addItem(key);
         garden.addItem(magicCape);
+
+        score = 0;
     }
 
     public void restart() {
@@ -184,5 +187,13 @@ public class Game {
         } else {
             handler.handle(command, this);
         }
+    }
+
+    public void incrementScore() {
+        this.score++;
+    }
+
+    public void resetScore() {
+        this.score = 0;
     }
 }

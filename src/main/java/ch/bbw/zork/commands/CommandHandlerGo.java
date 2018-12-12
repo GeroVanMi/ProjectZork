@@ -44,6 +44,7 @@ public class CommandHandlerGo implements CommandHandler {
             if (canEnter) {
                 game.getPreviousRooms().push(currentRoom);
                 if (!game.setCurrentRoom(nextRoom)) {
+                    game.incrementScore();
                     System.out.println(nextRoom.longDescription());
                 }
             }
