@@ -59,6 +59,7 @@ public class Game {
         commandRegistry.registerCommand(new CommandHandlerPut());
         commandRegistry.registerCommand(new CommandHandlerQuit());
         commandRegistry.registerCommand(new CommandRestart());
+        commandRegistry.registerCommand(new CommandHandlerAsk());
 
         parser = new Parser(System.in);
         random = new Random();
