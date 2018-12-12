@@ -19,7 +19,7 @@ public class FriendlyGhost extends Ghost {
 
         System.out.println("Hello traveler...");
         if(game.getBackpack().getItemByName("Magic cape") == null) {
-            System.out.println("The invisibility cloak may be be in the " + cloakRoom.getName());
+            System.out.println("The invisibility cape may be in the " + cloakRoom.getName());
         }
     }
 }
