@@ -31,8 +31,9 @@ public class CommandHandlerGo implements CommandHandler {
             }
             if (canEnter) {
                 game.getPreviousRooms().push(currentRoom);
-                game.setCurrentRoom(nextRoom);
-                System.out.println(nextRoom.longDescription());
+                if (!game.setCurrentRoom(nextRoom)) {
+                    System.out.println(nextRoom.longDescription());
+                }
             }
         } else {
             System.out.println("Go where?");
