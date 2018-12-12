@@ -1,11 +1,15 @@
 package ch.bbw.zork;
 
 import ch.bbw.zork.commands.*;
+import ch.bbw.zork.entities.EvilGhost;
+import ch.bbw.zork.entities.FriendlyGhost;
+import ch.bbw.zork.entities.Ghost;
 import ch.bbw.zork.items.Backpack;
 import ch.bbw.zork.items.Item;
 import ch.bbw.zork.items.Key;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Stack;
 
 /**
@@ -37,7 +41,9 @@ public class Game {
     private ArrayList<Room> map;
     private boolean finished;
     private Room winningRoom;
+    private Ghost currentGhost;
     private int score;
+    private Random random;
 
     /**
      * Create the game and initialise its internal map.
@@ -55,6 +61,8 @@ public class Game {
         commandRegistry.registerCommand(new CommandRestart());
 
         parser = new Parser(System.in);
+        random = new Random();
+
         initialize();
     }
 
@@ -70,6 +78,18 @@ public class Game {
         if(currentRoom == winningRoom){
             finished = true;
             System.out.println("you won");
+        } else {
+            int val = random.nextInt(10);
+            if (val < 3) {
+                boolean evil = random.nextBoolean();
+                if (evil) {
+                    currentGhost = new EvilGhost();
+                } else {
+                    currentGhost = new FriendlyGhost();
+                }
+            } else {
+                currentGhost = null;
+            }
         }
         this.currentRoom = currentRoom;
         return finished;
@@ -85,6 +105,10 @@ public class Game {
 
     public ArrayList<Room> getMap() {
         return map;
+    }
+
+    public Ghost getCurrentGhost() {
+        return currentGhost;
     }
 
     public void end() {
@@ -131,6 +155,7 @@ public class Game {
         lab.addItem(key);
         garden.addItem(magicCape);
 
+        currentGhost = null;
         score = 0;
     }
 
