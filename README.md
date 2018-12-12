@@ -8,3 +8,6 @@ Fürs nächste mal: Tasks gleichmässiger verteilen.
 ### 05.12.2018
 Alle Aufträge erfolgreich erledigt. Florian hat Command System überarbeitet um clean code zu erhalten.
 -Florian
+
+### 12.12.2018
+Alle Aufträge erledigt. Unsere Commands erweitert und bugs gefixt. Probleme sind auch heute keine aufgetreten. -Sam
