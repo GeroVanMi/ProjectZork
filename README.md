@@ -10,4 +10,4 @@ Alle Aufträge erfolgreich erledigt. Florian hat Command System überarbeitet um
 -Florian
 
 ### 12.12.2018
-Alle Aufträge erledigt. Unsere Commands erweitert und bugs gefixt. Probleme sind auch heute keine aufgetreten.
+Alle Aufträge erledigt. Unsere Commands erweitert und bugs gefixt. Probleme sind auch heute keine aufgetreten. -Sam
