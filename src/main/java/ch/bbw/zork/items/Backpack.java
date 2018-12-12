@@ -22,15 +22,18 @@ public class Backpack {
     /**
      * Adds an item to the backpack.
      */
-    public void addItem(Item item) {
+    public boolean addItem(Item item) {
         if (!inventory.contains(item)) {
             if(limit >= getBackpackWeight() + item.getWeight()){
                 inventory.add(item);
                 System.out.println("You have picked up " + item.getName());
+                return true;
             } else{
                 System.out.println("your backpack is full");
+                return false;
             }
         }
+        return false;
     }
 
     /**

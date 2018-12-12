@@ -118,7 +118,6 @@ public class Room {
     public Item getItem(String name) {
         for (Item item : items) {
             if (item.getName().toLowerCase().equals(name.toLowerCase())) {
-                items.remove(item);
                 return item;
             }
         }
@@ -132,6 +131,10 @@ public class Room {
             }
         }
         return false;
+    }
+
+    public void removeItem(Item item) {
+        items.remove(item);
     }
 
     public String getName() {
